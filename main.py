@@ -171,9 +171,8 @@ async def commandss(ctx):
     await ctx.send(f" O bot tem **{quantidade}** comandos registrados!")
 
 
-os.environ["GROQ_API_KEY"] = api_key
-
 chat = ChatGroq(model='openai/gpt-oss-20b')
+
 @bot.command()
 async def perguntar(ctx, *, pergunta):
     await ctx.reply("pensando...")
@@ -200,3 +199,7 @@ async def list_commandss(ctx):
     comandos = "\n".join(lista)
     await ctx.send(f"🧠 **Lista de comandos disponíveis:**\n{comandos}")
 
+
+# Para rodar o BOT, precisa de uma API_KEY para acessar chatgpt chamada "GROQ_API_KEY"
+BOT_TOKEN = getenv("BOT_TOKEN")
+bot.run(BOT_TOKEN)
