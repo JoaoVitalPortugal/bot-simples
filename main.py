@@ -1,10 +1,7 @@
-from venv import create
-
 import discord
 import asyncio
+from os import getenv
 from discord.ext import commands
-from discord import app_commands
-import os
 from langchain_groq import ChatGroq
 
 
@@ -201,5 +198,6 @@ async def list_commandss(ctx):
 
 
 # Para rodar o BOT, precisa de uma API_KEY para acessar chatgpt chamada "GROQ_API_KEY"
-BOT_TOKEN = getenv("BOT_TOKEN")
-bot.run(BOT_TOKEN)
+if __name__ == '__main__':
+    BOT_TOKEN = getenv("BOT_TOKEN")
+    bot.run(BOT_TOKEN)
